@@ -1,0 +1,11 @@
+# Ignore credentials
+creds.json
+
+# Python environment
+venv/
+__pycache__/
+*.pyc
+
+# OS-specific
+.DS_Store
+Thumbs.db
