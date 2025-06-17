@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Your Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Your Expense Tracker</h1>
+
+        <form method="POST" action="/">
+            <label for="user">Filter by User:</label>
+            <select name="user" id="user">
+                <option value="">All</option>
+                {% for user in users %}
+                    <option value="{{ user }}" {% if user == selected_user %}selected{% endif %}>{{ user }}</option>
+                {% endfor %}
+            </select>
+
+            <label>
+                <input type="checkbox" name="today" {% if filter_today %}checked{% endif %}>
+                Only Today’s Entries
+            </label>
+
+            <button type="submit">Apply Filters</button>
+        </form>
+
+        <form method="POST" action="/add">
+            <input type="text" name="user" placeholder="Your Name" required>
+            <input type="number" name="amount" placeholder="Amount" required>
+            <input type="text" name="category" placeholder="Category" required>
+            <button type="submit">Add Entry</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in records %}
+                <tr>
+                    <td>{{ row["Timestamp"] }}</td>
+                    <td>{{ row["User"] }}</td>
+                    <td>₹{{ row["Amount"] }}</td>
+                    <td>{{ row["Category"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

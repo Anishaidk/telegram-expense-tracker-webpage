@@ -1,0 +1,141 @@
+:root {
+  --bg-color: #011627;
+  --card-bg: #F2F4F3;
+  --text-color: #82A7A6;
+  --accent-color: #88819a;
+  --accent-hover: #785964;
+  --input-bg: #f8f6f7;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #83b1b6;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ffffff10;
+}
+
+h1 {
+  text-align: center;
+  color: #011627;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+form label {
+  font-weight: 500;
+  color: #011627;
+}
+
+form select,
+form input[type="checkbox"],
+form input[type="text"],
+form input[type="number"],
+form button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+form select,
+form input[type="text"],
+form input[type="number"] {
+  background-color: var(--input-bg);
+  color: #011627;
+}
+
+form input[type="checkbox"] {
+  accent-color: var(--accent-color);
+}
+
+form button {
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--accent-hover);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--accent-color);
+  color: #011627;
+}
+
+th,
+td {
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #f0e6ea;
+  color: #011627;
+}
+
+tr:nth-child(even) {
+  background-color: #fdf9fa;
+}
+
+tr:hover {
+  background-color: #f6eaea;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  th,
+  td {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  form select,
+  form input[type="text"],
+  form input[type="number"],
+  form button {
+    width: 100%;
+  }
+}
