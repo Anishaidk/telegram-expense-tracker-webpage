@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -5,6 +6,7 @@ from datetime import datetime
 from pytz import timezone
 import base64
 import json
+
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
