@@ -3,12 +3,18 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 from pytz import timezone
+import base64
+import json
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # Google Sheets setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+
+creds_json = os.environ.get("GOOGLE_CREDS_JSON")
+creds_dict = json.loads(base64.b64decode(creds_json).decode("utf-8"))
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+
 client = gspread.authorize(creds)
 sheet = client.open("ExpenseTracker").sheet1
 
